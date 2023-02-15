@@ -5,5 +5,4 @@
 layout: home
 ---
 
-## Tatiana Mihai
-### Software engineer
+### Staff Engineer at Tractable
