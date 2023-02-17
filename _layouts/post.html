@@ -1,0 +1,76 @@
+---
+layout: default
+disqus: false
+archive: false
+post_class: post-template
+---
+
+<!-- Begin Article
+================================================== -->
+
+	<div class="row">
+		
+		<!-- Post -->        
+		<div class="rounded mb-5 post-content">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-md-6">
+          <!-- Post Date -->
+          <div>
+            <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
+          </div>
+          <!-- Post Title -->
+          <h1 class="posttitle">{{ page.title }}</h1>
+          <p class="postlead">{{ page.lead }}</p>
+          <!-- Post Categories -->
+          <div class="after-post-tags">
+            <ul class="tags">
+                {% assign sortedCategories = page.categories | sort %}
+                {% for category in sortedCategories %}
+                <li>
+                 <a href="{{ site.baseurl }}/categories#{{ category | slugify }}">{{ category }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        <!-- End Categories --> 
+                      
+        </div>
+        <div class="col-md-6 featured-image">
+          <!-- Post Featured Image -->
+          {% if page.image %}<img class="img-fluid rounded" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}">{% endif %}
+          <!-- End Featured Image -->
+          {% if page.imgcaption %}<div class="imgcaption">{{ page.imgcaption }}</div>{% endif %}
+        </div>
+      </div>     
+    </div>
+
+			
+
+			<!-- Post Content -->
+			<div class="article-post">
+				{{content}}
+         <div class="clearfix"></div>
+			</div>
+            
+            <!-- Prev/Next -->
+            <div class="row PageNavigation mt-4 prevnextlinks d-flex justify-content-between">
+              {% if page.previous.url %}
+                <div class="col-md-6 rightborder pl-0">
+                    <a class="thepostlink" href="{{page.previous.url | absolute_url}}">&laquo; {{page.previous.title}}</a>
+                </div>
+              {% endif %}
+              {% if page.next.url %}
+                <div class="col-md-6 text-right pr-0">
+                    <a class="thepostlink" href="{{page.next.url | absolute_url}}">{{page.next.title}} &raquo;</a>
+                </div>
+              {% endif %}
+            </div>
+            <!-- End Prev/Next -->
+
+		</div>
+		<!-- End Post -->
+
+	</div>
+
+<!-- End Article
+================================================== -->
