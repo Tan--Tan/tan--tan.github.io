@@ -351,9 +351,10 @@ span.post-name a,span.post-read-more a:hover {
 .link-dark {
 	color:rgba(0,0,0,.8);
 }
-.article-post>*{
+.article-post>:not(.imgcaption, img){
     margin-bottom:1.5rem;
 }
+
 .article-post {
     font-size: 1.1em;
     line-height: 1.54;
@@ -395,7 +396,7 @@ blockquote {
 .featured-image img {
     height: 100%;
 }
-.featured-image .imgcaption {
+.imgcaption {
     bottom: 0;
     right: 0;
     font-style: italic;
